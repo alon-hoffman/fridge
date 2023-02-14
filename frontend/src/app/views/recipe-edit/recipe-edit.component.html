@@ -1,0 +1,31 @@
+<section class="recipe-edit container">
+  <h2>{{ recipe._id ? 'Edit' : 'Add' }} Recipe</h2>
+  <form>
+    <div>
+      <input [(ngModel)]="recipe.name" type="text" name="name" class="name" >
+    </div>
+    <div class="ingredients">
+    <div *ngFor="let ingredient of recipe.ingredients">
+      <ingredient-edit [ingredient]="ingredient" (ingredientChange)="onIngredientChange($event)"
+      (removeIngredient)="onRemoveIngredient($event)"></ingredient-edit>
+    </div>
+    <div>
+      <input [(ngModel)]="ingredient.quantity"
+       type="text" name="quantity" id="quantity" placeholder="Amount">
+      <input [(ngModel)]="ingredient.name" 
+      type="text" name="ingredient" id="ingredient" placeholder="Name">
+      <button (click)="onAddIngredient()">Save new ingredient</button>
+    </div>
+  </div>
+  <img src={{recipe.imgURL}} alt="">
+    <div>
+      <label for="link">Link:</label>
+      <input [(ngModel)]="recipe.link" type="text" name="link" id="link">
+    </div>
+    <div>
+      <label for="directions">Directions:</label>
+      <textarea [(ngModel)]="recipe.directions" name="directions" id="directions"></textarea>
+    </div>
+    <button (click)="onSaveRecipe()">Save Changes</button>
+  </form>
+</section>

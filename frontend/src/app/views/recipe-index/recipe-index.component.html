@@ -1,0 +1,9 @@
+<section class="recipe-app">
+    <!-- <recipe-filter></recipe-filter> -->
+  
+    <a routerLink="/edit">Add Recipe</a>
+    <recipe-list (onRemove)="onRemoveRecipe($event)" [recipes]="recipes"></recipe-list>
+  </section>
+  
+  <router-outlet></router-outlet>
+  

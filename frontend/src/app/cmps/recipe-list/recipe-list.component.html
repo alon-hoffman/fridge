@@ -1,0 +1,4 @@
+<section class="recipe-list">
+    <recipe-preview (onRemove)="onRemove.emit($event)"  *ngFor="let recipe of recipes; index as idx"
+        [recipe]="recipe" ></recipe-preview>
+</section>

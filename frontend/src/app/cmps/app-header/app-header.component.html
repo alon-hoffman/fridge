@@ -1,0 +1,12 @@
+<header class="header">
+  <div class="container">
+    <div class="logo">
+      <h1>What's In The Fridge?</h1>
+    </div>
+    <app-hamburger [isOpened]="isNavMenuShown" (toggleMenu)="toggleNavMenu()"></app-hamburger>
+    <nav class="nav-menu" [ngClass]="{ 'show': isNavMenuShown }">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a>
+      <a routerLink="/about" routerLinkActive="active">About</a>
+    </nav>
+  </div>
+</header>

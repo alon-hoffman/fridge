@@ -1,0 +1,5 @@
+<div class="ingredient-edit">
+  <div class="icon trash" (click)="onRemove()"></div>
+    <input [(ngModel)]="ingredient.quantity" (ngModelChange)="updateIngredient()" type="text" placeholder="Amount">
+    <input [(ngModel)]="ingredient.name" (ngModelChange)="updateIngredient()" type="text" placeholder="Name">
+  </div>

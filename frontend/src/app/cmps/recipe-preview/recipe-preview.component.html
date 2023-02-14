@@ -1,0 +1,13 @@
+<section [routerLink]="['/recipe', recipe._id]" class="recipe-preview">
+    <section class="info">
+        <section class="data">
+            <p>{{recipe.name}}</p>
+        </section>
+        <section class="actions">
+            <button (click)="onRemoveRecipe($event)" class="remove-btn">X</button>
+            <button (click)="onEditRecipe($event)" class="edit-btn">Edit</button>
+        </section>
+    </section>
+
+    <img src={{recipe.imgURL}} alt="">
+</section>
