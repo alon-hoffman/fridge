@@ -1,9 +1,9 @@
 <section class="recipe-app">
-    <!-- <recipe-filter></recipe-filter> -->
+  <recipe-filter [recipes]="recipes" (filtered)="onFilterChange($event)"></recipe-filter>
   
-    <a routerLink="/edit">Add Recipe</a>
-    <recipe-list (onRemove)="onRemoveRecipe($event)" [recipes]="recipes"></recipe-list>
-  </section>
-  
-  <router-outlet></router-outlet>
-  
+  <a routerLink="/edit">Add Recipe</a>
+  <recipe-list (onRemove)="onRemoveRecipe($event)" [recipes]="recipes"></recipe-list>
+  <!-- <recipe-list (onRemove)="onRemoveRecipe($event)" [recipes]="recipesToShow"></recipe-list> -->
+</section>
+
+<router-outlet></router-outlet>

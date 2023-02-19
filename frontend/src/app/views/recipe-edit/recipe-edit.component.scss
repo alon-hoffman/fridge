@@ -2,19 +2,46 @@
   display: flex;
   flex-direction: column;
   margin: 0 auto;
+  margin-top: 20px;
+  .center{
+    display: flex;   
+    flex-direction: row; 
+    .directions{
+      flex-grow: 1;
+    }
+  }
+  a {
+    display: block;
+    margin: 10px auto;
+  }
     img{
+      margin-top: 5px;
+      margin-inline-end: 10px;
         width:min(300px,100%)
     }
-    h2 {
-      font-size: 1.5em;
+    h3 {
       text-align: center;
+    }
+    textarea {
+      font-family: inherit;
+      // height: auto;
+      // overflow-y: hidden;
+      // height:100%;
+      flex-grow: 1;
+      width: 100%;
+      border: none;
+      font-size: 16px;
+      resize: none;
+      &:focus{
+        overflow-y: auto;
+      }
     }
   
     form {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      margin: 1em;
+      // align-items: center;
+      justify-content: space-between;
   
       small {
         margin-right: 0.5em;
@@ -22,35 +49,49 @@
   
       input[type="text"] {
         border:none;
-        // padding: 0.5em;
-        // margin-bottom: 1em;
-        // border: 1px solid #ddd;
-        // border-radius: 5px;
-        // font-size: 1em;
-        &.name{
+        padding-inline-start: 10px;
+        &.link-input{
+          display: inline-block;
+          width:90%;
+        }
+      }
+        .name{
+            border:none;
             text-align: center;
             font-size: 2em;
-            width:90%;
+            width:100%;
+            float: left;
+            // overflow: ;
         }
       }
   
       button {
-        padding: 0.5em 1em;
-        // background-color: lightblue;
-        // border: 1px solid blue;
-        border-radius: 5px;
-        // color: white;
-        font-size: 1em;
+
+        background-color: #ffded6;
+        border: 1px solid black;
+        border-radius: 2px;
+        // margin-inline-start: 10px;
+        margin-top:10px ;
+        // font-size: 1em;
         cursor: pointer;
   
         &:hover {
-          background-color:#72ba68;
+          background-color:#f9e8e4;
         }
       }
+      .ingredients{
+        margin-block:20px;
+        h2{
+          margin-bottom: 10px;
+        }
     }
-    .ingredients{
-        // flex-grow: 1;
-        // margin-block:20px;
+    @media (max-width: 700px) {
+      .center{
+        flex-direction: column;
+        
+      }
     }
-  }
+    }
+    
+  
   

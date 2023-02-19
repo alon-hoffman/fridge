@@ -1,14 +1,20 @@
-<section  class="recipe-details">
-    <p>Name: {{recipe.name}}</p>
-    <!-- <p>Age: {{recipe.age}}</p> -->
-    <!-- <p>birthDate: {{recipe.birthDate}}</p> -->
-    <img src="https://robohash.org/{{recipe._id}}?set=set4" alt="">
+<div class="recipe-details container">
+    <h1>{{ recipe.name }}</h1>
+    <h2 class="ingredients-header">Ingredients</h2>
+    <ul>
+      <li *ngFor="let ingredient of recipe.ingredients">
+        <label>
+          <input type="checkbox">
+          <span class="ingredient-text">{{ ingredient.quantity }} {{ ingredient.name }}</span>
+        </label>
+      </li>
+    </ul>
+    <div class="center">
+      <img src="{{ recipe.imgURL }}" alt="Recipe image">
+      <p>{{ recipe.directions }}</p>
+    </div>
+    <a href="{{ recipe.link }}" target="_blank">View full recipe</a>
+    <a [routerLink]="['/edit', recipe._id]">Edit Recipe</a>
 
-    <!-- <section class="actions">
-        <section>
-            <button (click)="onShouldAdoptRecipe()">Should I Adopt Recipe?</button>
-            <span>{{ans}}</span>
-        </section>
-        <button (click)="onBack()">Back</button>
-    </section> -->
-</section>
+  </div>
+  

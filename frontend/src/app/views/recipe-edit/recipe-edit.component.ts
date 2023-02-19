@@ -17,9 +17,7 @@ export class RecipeEditComponent implements OnInit {
   ) { }
 
   recipe!: Recipe
-  ingredient: { quantity: string, name: string, id: string } = { quantity: '', name: '', id: this._makeId() }
   subscription!: Subscription
-  editingIngredient: { quantity: string, name: string, id: string } | null = null;
 
   editedQuantity = '';
   editedName = '';
@@ -28,7 +26,16 @@ export class RecipeEditComponent implements OnInit {
     this.subscription = this.route.data.subscribe(({ recipe }) => {
       this.recipe = recipe || this.recipeService.getEmptyRecipe() as Recipe
     })
+    setTimeout(()=> this.setTextareaHeight(),1)
+   
      }
+
+     setTextareaHeight() {
+      console.log('set height')
+      const textarea = document.querySelector('.directions-area') as HTMLTextAreaElement;
+      textarea.style.height = 'auto';
+      textarea.style.height = textarea.scrollHeight + 'px';
+    }
 
   async onSaveRecipe() {
     console.log("onSaveRecipe")
@@ -41,9 +48,7 @@ export class RecipeEditComponent implements OnInit {
     this.subscription.unsubscribe()
   }
 
-  onEditIngredient(ingredient: { quantity: string, name: string, id: string }): void {
-    this.editingIngredient = ingredient;
-  }
+  
 
   onRemoveIngredient(id: string) {
     this.recipe.ingredients = this.recipe.ingredients.filter(currIngredient => {
@@ -52,7 +57,12 @@ export class RecipeEditComponent implements OnInit {
   }
 
   onAddIngredient(): void {
-    if (this.ingredient.name && this.ingredient.quantity) this.recipe.ingredients.push(this.ingredient)
+    const newIngredient: Ingredient= {
+      id:this._makeId(),
+      quantity: 'Amount',
+      name:'Name'
+    }
+    this.recipe.ingredients.push(newIngredient)
   }
 
   onBack() {
@@ -62,12 +72,4 @@ export class RecipeEditComponent implements OnInit {
   _makeId(): string {
     return `id-${Date.now()}}-${Math.random()}`
   }
-
-  onIngredientChange(ingredient: Ingredient) {
-    // this.recipe.ingredients = this.recipe.ingredients.map(currIngredient => {
-    //   if (currIngredient.id === ingredient.id) return ingredient;
-    //   return currIngredient });
-    //   this.recipeService.save(this.recipe);
-  }
-
 }

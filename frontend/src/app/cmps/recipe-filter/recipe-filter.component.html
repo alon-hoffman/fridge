@@ -1,4 +1,16 @@
-<form class="recipe-filter">
-    <input [(ngModel)]="recipeFilter.term" (ngModelChange)="onSetFilter()" type="text" name="term" id="term"
-        placeholder="Search a recipe">
-</form>
+<div class="filter">
+    <div class="filter-input">
+      <label for="filter-input">Filter by recipe name:</label>
+      <input type="text" id="filter-input" name="filter-input">
+    </div>
+    <div class="filter-ingredients">
+      <h3>Filter by ingredient:</h3>
+      <div class="ingredient" *ngFor="let ingredient of uniqueIngredients">
+        <label>
+            <input type="checkbox" class="ingredient-filter" value="{{ingredient}}">
+          {{ ingredient }}
+        </label>
+      </div>
+    </div>
+  </div>
+  

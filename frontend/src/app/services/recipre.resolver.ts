@@ -16,7 +16,6 @@ export class RecipeResolver implements Resolve<Recipe> {
   
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Recipe> {
     const recipeId = route.params['_id']
-    
     return this.recipeService.getById(recipeId).pipe(delay(100))
   }
 }

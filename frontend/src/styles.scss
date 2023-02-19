@@ -57,9 +57,12 @@ input {
 }
 
 .container {
-    width: 1100px; // Default width
+    width: 900px; // Default width
     
     @media (max-width: 1200px) {
+      width:600px;
+    }
+    @media (max-width: 700px) {
       width: calc(100vw - 40px); // If screen is smaller than 100px
     }
   }

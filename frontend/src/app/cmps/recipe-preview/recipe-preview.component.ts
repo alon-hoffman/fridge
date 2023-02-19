@@ -14,6 +14,12 @@ export class RecipePreviewComponent {
 
   constructor(private router: Router) {}
 
+  onRecipeDetail(ev: MouseEvent):void{
+    ev.stopPropagation();
+    this.router.navigate(['/recipe', this.recipe._id]);
+    console.log(this.recipe._id)
+  }
+
   onRemoveRecipe(ev: MouseEvent) {
     ev.stopPropagation();
     this.onRemove.emit(this.recipe._id);
@@ -21,11 +27,10 @@ export class RecipePreviewComponent {
 
   onShowDetails(): void {
     console.log('showDetails');
-    this.router.navigate(['/details', this.recipe._id]);
-  }
+    this.router.navigate(['/recipe', this.recipe._id]);
+}
 
   onEditRecipe(ev: MouseEvent) {
-    console.log(this.recipe._id)
     ev.stopPropagation();
     this.router.navigate(['/edit', this.recipe._id]);
   }

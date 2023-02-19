@@ -1,4 +1,5 @@
-<section [routerLink]="['/recipe', recipe._id]" class="recipe-preview">
+<!-- <section [routerLink]="['/recipe', recipe._id]" class="recipe-preview"> -->
+<section (click)="onRecipeDetail($event)" class="recipe-preview">
     <section class="info">
         <section class="data">
             <p>{{recipe.name}}</p>

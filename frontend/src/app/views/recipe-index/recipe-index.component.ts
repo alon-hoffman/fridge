@@ -19,7 +19,10 @@ export class RecipeIndexComponent implements OnInit, OnDestroy {
   recipes: Recipe[] = [];
 
   subscription!: Subscription
+  //@ts-ignore
+  onFilterChange(arg):void{
 
+  }
   onRemoveRecipe(recipeId: string) {
     this.recipeService.remove(recipeId)
     this.userMsgService.setMsg(`Recipe (${recipeId}) removed!`)
@@ -31,7 +34,7 @@ export class RecipeIndexComponent implements OnInit, OnDestroy {
       this.recipes = recipes
     });
   }
-
+  
   ngOnDestroy(): void {
     this.subscription?.unsubscribe();
   }

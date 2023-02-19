@@ -9,10 +9,9 @@ import { RecipeIndexComponent } from './views/recipe-index/recipe-index.componen
 
 const routes: Routes = [
   {
-    path: 'recipe/:id',
+    path: 'recipe/:_id',
     component: RecipeDetailsComponent,
     resolve: { recipe: RecipeResolver },
-    canActivate: [AuthGuard],
   },
   { path: 'about', component: AboutComponent },
   {

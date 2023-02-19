@@ -95,7 +95,6 @@ private recipesUrl = 'http://localhost:3030/api/recipe'
 
 
   public save(recipe: Recipe): Observable<Recipe> {
-    console.log("🚀 ~ file: recipe.service.ts:98 ~ RecipeService ~ save ~ recipe", recipe)
     console.log(`${this.recipesUrl}/${recipe._id}`)
     return recipe._id
       ? this.http.put<Recipe>(`${this.recipesUrl}/${recipe._id}`, recipe)
