@@ -7,7 +7,7 @@
       <h3>Filter by ingredient:</h3>
       <div class="ingredient" *ngFor="let ingredient of uniqueIngredients">
         <label>
-            <input type="checkbox" class="ingredient-filter" value="{{ingredient}}">
+        <input type="checkbox" class="ingredient-filter" value="{{ingredient}}" (click)="onFilterChange()">
           {{ ingredient }}
         </label>
       </div>

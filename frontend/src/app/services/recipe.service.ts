@@ -107,29 +107,7 @@ private recipesUrl = 'http://localhost:3030/api/recipe'
     this.query()
   }
 
-  private _add(recipe: Recipe) {
-    recipe._id = this._makeId()
-    this._recipesDb.push(recipe)
-    this._recipes$.next(this._recipesDb)
-    return of(recipe)
-  }
-
-  private _edit(recipe: Recipe) {
-    const recipes = this._recipesDb
-    const recipeIdx = recipes.findIndex(_recipe => _recipe._id === recipe._id)
-    recipes.splice(recipeIdx, 1, recipe)
-    this._recipes$.next(recipes)
-    return of(recipe)
-  }
-
-  private _makeId(length = 5) {
-    var text = "";
-    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    for (var i = 0; i < length; i++) {
-      text += possible.charAt(Math.floor(Math.random() * possible.length));
-    }
-    return text;
-  }
+ 
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       console.error('An error occurred:', error.error.message);

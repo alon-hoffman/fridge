@@ -1,9 +1,13 @@
 <section class="recipe-app">
   <recipe-filter [recipes]="recipes" (filtered)="onFilterChange($event)"></recipe-filter>
-  
   <a routerLink="/edit">Add Recipe</a>
-  <recipe-list (onRemove)="onRemoveRecipe($event)" [recipes]="recipes"></recipe-list>
-  <!-- <recipe-list (onRemove)="onRemoveRecipe($event)" [recipes]="recipesToShow"></recipe-list> -->
+  <div *ngIf="recipesToShow.length > 0">
+    <h2>Matching Recipes:</h2>
+    <recipe-list (onRemove)="onRemoveRecipe($event)" [recipes]="recipesToShow"></recipe-list>
+  </div>
+  <div *ngIf="recipesToShow.length === 0">
+    <h2>No matching recipes found.</h2>
+  </div>
 </section>
 
 <router-outlet></router-outlet>

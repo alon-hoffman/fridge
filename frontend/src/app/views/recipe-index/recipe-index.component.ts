@@ -17,12 +17,17 @@ export class RecipeIndexComponent implements OnInit, OnDestroy {
   ) { }
 
   recipes: Recipe[] = [];
+  recipesToShow: Recipe[] = [];
 
   subscription!: Subscription
   //@ts-ignore
-  onFilterChange(arg):void{
-
+  onFilterChange(payload):void{
+    console.log("🚀 ~ file: recipe-index.component.ts:25 ~ RecipeIndexComponent ~ onFilterChange ~ payload", payload)
+    // this.recipesToShow= checkedRecipes
   }
+  // onFilterChange(checkedRecipes:Recipe[], sortedUncheckedRecipes:Recipe[]|null):void{
+  //   this.recipesToShow= checkedRecipes
+  // }
   onRemoveRecipe(recipeId: string) {
     this.recipeService.remove(recipeId)
     this.userMsgService.setMsg(`Recipe (${recipeId}) removed!`)
@@ -32,6 +37,7 @@ export class RecipeIndexComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subscription = this.recipeService.query().subscribe(recipes => {
       this.recipes = recipes
+      this.recipesToShow = recipes
     });
   }
   
